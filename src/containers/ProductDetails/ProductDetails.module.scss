@@ -1,0 +1,109 @@
+.productDetails {
+    background-color: #fff;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
+    padding: 2rem;
+
+    &__star {
+        display: inline-block;
+        width: 1.5rem;
+    }
+
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        grid-gap: 4rem;
+    }
+
+    &__images {
+        // background-color: coral;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-gap: 2rem;
+        align-self: flex-start;
+
+        &__active {
+            border: 2px solid orange !important;
+            
+        }
+
+        &__children {
+            // background-color: aqua;
+            align-self: flex-start;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 9rem;
+                margin-bottom: 1rem;
+                border: 2px solid lightgray;
+                object-fit: contain;
+                object-position: center;
+                cursor: pointer;
+
+                &:hover {
+                    border: 2px solid #0C4E6E;
+
+                }
+            }
+        }
+
+        &__main {
+            // background-color: aqua;
+            height: 30rem;
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    &__desc {
+        // background-color: coral;
+        height: 40rem;
+
+        & > p {
+            font-size: 1.3rem;
+            color: gray;
+        }
+
+        & > h2,h3 {
+            font-weight: 400;
+            margin-top: 2rem;
+        }
+
+        & > ul > li,a {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__colorType {
+
+        span {
+            display: inline-block;
+            border: 1px solid lightgray;
+            padding: .3rem 1rem;
+            margin-right: 1rem;
+            font-size: 1.3rem;
+            cursor: pointer;
+
+            &:hover {
+                border: 1px solid #0C4E6E;
+                color: #0C4E6E;
+
+            }
+        }
+    }
+
+    &__price {
+        color: orange;
+        font-size: 3rem;
+        font-weight: 400;
+        margin: 2rem 0;
+    }
+
+}
