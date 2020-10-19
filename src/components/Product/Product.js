@@ -1,5 +1,8 @@
 import React from 'react'
 import classes from './Product.module.scss';
+import { withRouter } from 'react-router-dom';
+// import { connect } from 'react-redux';
+// import * as actionCreators from '../../store/actions/selectedProduct';
 
 const titleShortner = (title) => {
    
@@ -12,6 +15,7 @@ const titleShortner = (title) => {
 }
 
 function numberWithCommas(x) {
+    
     var parts = x.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     
@@ -19,15 +23,18 @@ function numberWithCommas(x) {
 }
 
 function percentCalc(original,discount) {
-    let final = ((original-discount)/original) * 100;
+    let final = ((discount)/original) * 100;
     return Math.floor(final);
 }
 
 
 
 function Product(props) {
+    
+    
+    
     return (
-        <div className={classes.product}>
+        <div className={classes.product} onClick={props.clicked}>
             {/* product image */}
             <div className={classes.product__img}>
                 <img 
@@ -40,15 +47,21 @@ function Product(props) {
             </h3>
             {/* product price */}
             <div className={classes.product__price}>
-                NPR { numberWithCommas(props.discountPrice)}
+                NPR { numberWithCommas(props.originalPrice - props.discount)}
             </div>
             {/* product discount */}
             <div className={classes.product__discount}>
                 <span>{props.originalPrice}</span>
-                <span>{percentCalc(props.originalPrice,props.discountPrice)}% off</span>
+                <span>{percentCalc(props.originalPrice,props.discount)}% off</span>
             </div>
         </div>
     )
 }
 
-export default Product
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         getSelected: (type,category,productId) => dispatch(actionCreators.getSelectedProduct(type,category,productId))
+//     }
+// }
+
+export default Product;

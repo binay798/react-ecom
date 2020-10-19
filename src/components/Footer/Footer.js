@@ -3,7 +3,8 @@ import classes from './Footer.module.scss';
 import { secure,
         fastDelivery,
         returnBox,bestSeller,
-        logo,fb,ins,lin,envelope,location,phone, googlePlay,appleStore,
+        logo,envelope,location,phone, googlePlay,appleStore,
+        //,fb,ins,lin
 } from '../../assets/images';
 
 function Footer() {
@@ -64,7 +65,7 @@ function Footer() {
                     {/* Address */}
                     <div className={classes.footer__address}>
                         <img src={location} alt="Location"/>
-                        <p><span>Address:</span> Samakhushi Ranibari Road, Kathmandu, Nepal</p>
+                        <p><span>Address:</span> test location,Nepal</p>
                     </div>
 
                     {/* phone number */}

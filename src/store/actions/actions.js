@@ -1,0 +1,6 @@
+
+export const INITIALIZE = 'INITIALIZE';
+
+export const STORE_SELECTED_PRODUCT = 'STORE_SELECTED_PRODUCT';
+
+export const ADD_TO_CART = 'ADD_TO_CART';

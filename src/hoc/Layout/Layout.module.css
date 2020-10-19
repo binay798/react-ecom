@@ -1,0 +1,16 @@
+.toTop {
+  position: fixed;
+  right: 1rem;
+  bottom: 5rem;
+  z-index: 20;
+  background-color: orange;
+  padding: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.toTop img {
+  display: block;
+  width: 4rem;
+}
+/*# sourceMappingURL=Layout.module.css.map */

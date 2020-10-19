@@ -1,0 +1,54 @@
+.cart {
+
+    &__container {
+        
+        
+        &__title {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+
+            & > div {
+                // background-color: coral;
+                border-top: 1px solid lightgray;
+                border-bottom: 1px solid lightgray;
+                border-right: 1px solid lightgray;
+                padding: .5rem 1rem;
+            }
+
+            & > div:first-child {
+                border-left: 1px solid lightgray;
+            }
+        }
+
+        &__total {
+            margin-top: 2rem;
+            text-align: right;
+            margin-right: 6rem;
+            h2 {
+                font-weight: 400;
+                margin-bottom: 1rem;
+                
+            }
+
+            button {
+                background-color: orange;
+                border:none;
+                cursor: pointer;
+                color: #fff;
+                display: inline-block;
+                padding: 1rem 2.5rem;
+                font-size: 1.6rem;
+                outline: none;
+                &:hover {
+                    background-color: darken(orange,5);
+                }
+            }
+        }
+        
+        
+    }
+
+    
+
+    
+}

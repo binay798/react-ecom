@@ -22,13 +22,20 @@ import googlePlay from './google-play.png';
 import appleStore from './apple-store.png';
 import top from './arrow-top.svg';
 import star from './star.svg';
+import buy from './buy.svg';
+import cart from './cart.svg';
+import user from './user-profile.svg';
+import search from './search.svg';
+import trash from './trash.svg';
+import plus from './plus.svg';
+import minus from './minus-sign.svg';
 
 export { logo,
      book,
     menFashion, envelope,location,phone,googlePlay,appleStore,star,
-    furniture, 
-    top,
-    kitchen, 
+    furniture, buy,trash,
+    top,cart,user,search,
+    kitchen, plus,minus,
     sport, 
     toys, 
     woman, 

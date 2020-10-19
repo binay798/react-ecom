@@ -14,7 +14,7 @@ const moveToTop = () => {
 
 function Layout({children}) {
     return (
-        <div>
+        <div className={classes.layout}>
             <Navbar />
             {children}
             <Footer />

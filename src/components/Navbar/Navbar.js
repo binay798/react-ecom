@@ -1,28 +1,32 @@
 import React from 'react'
 import classes from './Navbar.module.scss';
-import { logo } from '../../assets/images';
-import SearchIcon from '@material-ui/icons/Search';
-import PersonOutlineRoundedIcon from '@material-ui/icons/PersonOutlineRounded';
-import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
+import { logo,cart,user,search, } from '../../assets/images';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
 
 
-function Navbar() {
+function Navbar(props) {
+    let productCount = props.getProductCount.productsInCart.length;
+    console.log(productCount)
     return (
         <div className={classes.navbar}>
-            <a href="/" className={classes.navbar__logo}>
+            <Link to="/" className={classes.navbar__logo}>
                 <img src={logo} className={classes.navbar__logoImg} alt="Logo"/>
-            </a>
+            </Link>
             <div className={classes.navbar__search}>
                 <input type="text" placeholder="Search products, brands and categories"/>
                 <div>
-                    <SearchIcon style={{width: '2.5rem',height: '2.5rem',fill:'#f7f7f7'}} />
+                    {/* <SearchIcon style={{width: '2.5rem',height: '2.5rem',fill:'#f7f7f7'}} /> */}
+                    <img src={search} style={{display:'block',width: '2.5rem',height: '2.5rem'}} alt=""/>
                 </div>
             </div>
             <div className={classes.navbar__nav}>
                 <a href="/" className={classes.navbar__nav__link}>
                     <span>Hello,guest</span>
                     <span>
-                        <PersonOutlineRoundedIcon  />
+                        {/* <PersonOutlineRoundedIcon  /> */}
+                        <img src={user} style={{display:'block',width: '2.5rem',height: '2.5rem'}} alt=""/>
+
                         Accounts
                     </span>
                 </a>
@@ -31,14 +35,22 @@ function Navbar() {
                     Orders
                 </a>
 
-                <a href="/" className={classes.navbar__nav__link}>
-                    <ShoppingCartRoundedIcon style={{width: "2.5rem",height: "2.5rem"}} />
-                    <p className={classes.cartNum}><span>2</span></p>
-                </a>
+                <Link to="/cart" className={classes.navbar__nav__link}>
+                    {/* <ShoppingCartRoundedIcon style={{width: "2.5rem",height: "2.5rem"}} /> */}
+                        <img src={cart} style={{display:'block',width: '2.5rem',height: '2.5rem'}} alt=""/>
+
+                    <p className={classes.cartNum}><span>{productCount}</span></p>
+                </Link>
             </div>
 
         </div>
     )
 }
 
-export default Navbar
+const mapStateToProps = state => {
+    return {
+        getProductCount: state.cart
+    }
+}
+
+export default connect(mapStateToProps)(Navbar);
