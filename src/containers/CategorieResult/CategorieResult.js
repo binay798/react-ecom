@@ -5,13 +5,17 @@ import { db } from '../../firebase';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
 import { withRouter } from 'react-router-dom';
+import Skeleton from '@material-ui/lab/Skeleton';
+import Modal from '../../components/UI/Modal/Modal';
 
 
 const img = 'https://images.carandbike.com/bike-images/colors/tvs/scooty-pep-plus/tvs-scooty-pep-plus-revving-red.webp?v=1585825526'
 function CategorieResult(props) {
+
+    const [loading,setLoading] = React.useState(false)
     
     let categoryId = props.match.params.id;
-    const [title,setTitle] = React.useState('Fetching data...');
+    const [title,setTitle] = React.useState(<Skeleton animation="wave" width={250} height={50} />);
     const [products,setProducts] = React.useState(null);
     
     React.useEffect(() => {
@@ -37,6 +41,7 @@ function CategorieResult(props) {
     },[])
 
     const goToProductDetailsPage = (productId) => {
+        setLoading(true);
         db.collection('categories')
             .doc(categoryId)
             .collection('products')
@@ -44,16 +49,33 @@ function CategorieResult(props) {
             .get()
             .then(res => {
                 
+                setLoading(false);
+                
                 let productInfo = {...res.data(),id: res.id};
                 
                 props.storeSelectedProduct(productInfo)
                 props.history.push(`/productDetails/${productId}`);
                 
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err);
+                setLoading(false);
+
+            })
     }
 
-    let displayproducts = (<p>Fetching data...</p>)
+
+    let displayproducts = Array(6).fill().map(item => {
+        return (
+            <div>
+                <Skeleton width="100%" height={200} animation="wave"  />
+                <Skeleton width="50%" height={20} animation="wave" marginBottom="10px" />
+                <Skeleton width="70%" height={20} animation="wave" marginBottom="10px" />
+                <Skeleton width="60%" height={20} animation="wave" />
+
+            </div>
+        )
+    })
     if(products !== null) {
         displayproducts = products.map(item => {
             return (
@@ -74,6 +96,7 @@ function CategorieResult(props) {
     
     return (
         <div className={classes.categorie}>
+            <Modal show={loading} >Fetching data...</Modal>
             <div className={classes.left}>
                 <div className={classes.left__child}>
                     <h2>Filter By</h2>

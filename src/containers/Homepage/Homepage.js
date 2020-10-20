@@ -5,13 +5,16 @@ import Product from '../../components/Product/Product';
 import { db } from '../../firebase';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
-
+import Skeleton from '@material-ui/lab/Skeleton';
+import Modal from '../../components/UI/Modal/Modal';
 
 
 
 
 
 function Homepage(props) {
+
+    const [loading,setLoading] = React.useState(false);
     
     // Get deals products from 'firebase
     React.useEffect(() => {
@@ -64,19 +67,35 @@ function Homepage(props) {
 
     // Go to product details page ***From deals***
     const goToProductDetailsFromDeals = (productId) => {
+        setLoading(true)
         db.collection('Deals')
             .doc(productId)
             .get()
             .then( res => {
+                setLoading(false)
                 props.storeSelectedProduct({...res.data(),id: res.id})
                 props.history.push(`/productDetails/${res.id}`)
+                
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                setLoading(false)
+            })
     }
     
 
     // Display all products of deals
-    let showAllDeals = (<p>Fetching data...</p>)
+    let showAllDeals = Array(6).fill().map(item => {
+        return (
+            <div>
+                <Skeleton width="100%" height={200} animation="wave"  />
+                <Skeleton width="50%" height={20} animation="wave" marginBottom="10px" />
+                <Skeleton width="70%" height={20} animation="wave" marginBottom="10px" />
+                <Skeleton width="60%" height={20} animation="wave" />
+
+            </div>
+        )
+    })
     if(props.homepage.deals !== null) {
         showAllDeals = props.homepage.deals.map(item => {
         
@@ -119,6 +138,7 @@ function Homepage(props) {
     // }
     return (
         <div className={classes.homepage}>
+            <Modal show = {loading} >Fetching data...</Modal>
             <div className={classes.homepage__main}>
                 <Categories />
                 <img 
