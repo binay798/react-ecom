@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 
 function Navbar(props) {
     let productCount = props.getProductCount.productsInCart.length;
-    console.log(productCount)
     return (
         <div className={classes.navbar}>
             <Link to="/" className={classes.navbar__logo}>

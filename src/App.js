@@ -4,7 +4,7 @@ import Layout from './hoc/Layout/Layout';
 import ProductDetails from './containers/ProductDetails/ProductDetails';
 import Cart from './containers/Cart/Cart';
 import CategorieResult from './containers/CategorieResult/CategorieResult';
-import AddToDb from './AddToDb';
+// import AddToDb from './AddToDb';
 import { Route,Switch } from 'react-router-dom';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 
         </Switch>
         
-        <AddToDb />
+        {/* <AddToDb /> */}
       </div>
     </Layout>
     

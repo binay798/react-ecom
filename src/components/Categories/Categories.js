@@ -8,8 +8,8 @@ function Categories(props) {
 
     
 
-    let displayCategories = Array(9).fill().map(item => {
-        return <Skeleton animation="wave" variant="rect" width="100%" height={31} style={{marginBottom: "2px"}}  />
+    let displayCategories = Array(9).fill().map((item,id) => {
+        return <Skeleton key={id} animation="wave" variant="rect" width="100%" height={31} style={{marginBottom: "2px"}}  />
     })
     if(props.categories !== null) {
         displayCategories = props.categories.map(item => {

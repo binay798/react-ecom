@@ -4,12 +4,16 @@ import CartItem from './CartItem/CartItem';
 import { connect } from 'react-redux'
 
 
-const imgUrl3 = 'https://www.lavamobiles.com/Product/z92/images/z92banner.png';
-const imgUrl2 = 'https://img.xfinitymobile.com/image/upload/c_fit,f_auto,q_auto,fl_lossy/v1597347249/client/v2/images/lg-moto-100-promo/moto-100-promo-shop-banner-1280.png'
-
 
 
 function Cart(props) {
+    let getGrandTotal = props.productsInCart.productsInCart
+        .map(product => {
+            return product.totalPrice
+        })
+        .reduce((cur,next) => {
+            return cur + next;
+        },0)
 
     const [productsInCart,setProductsInCart] = React.useState([]);
 
@@ -18,7 +22,7 @@ function Cart(props) {
         let allProducts = props.productsInCart.productsInCart;
 
         setProductsInCart([...allProducts])
-    },[])
+    },[props.productsInCart])
 
     let displayProducts = (<h2>Cart is Empty</h2>)
     if(productsInCart.length !== 0) {
@@ -46,7 +50,7 @@ function Cart(props) {
                 {displayProducts}
 
                 <div className={classes.cart__container__total}>
-                    <h2>Total: 12,000</h2>
+                    <h2>Total: {getGrandTotal}</h2>
                     <button>Checkout</button>
                 </div>
             </div>

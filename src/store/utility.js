@@ -3,9 +3,9 @@ import produce from 'immer';
 
 
 export function getNewState(oldState) {
-    let newState = produce(oldState,next => {
-        return next;
-    })
+    let nextState = produce(oldState,next => {
+        return next
+    });
 
-    return newState
+    return nextState
 }

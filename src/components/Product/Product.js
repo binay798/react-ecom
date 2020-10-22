@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './Product.module.scss';
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import * as actionCreators from '../../store/actions/selectedProduct';
 

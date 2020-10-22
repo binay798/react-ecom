@@ -9,7 +9,6 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import Modal from '../../components/UI/Modal/Modal';
 
 
-const img = 'https://images.carandbike.com/bike-images/colors/tvs/scooty-pep-plus/tvs-scooty-pep-plus-revving-red.webp?v=1585825526'
 function CategorieResult(props) {
 
     const [loading,setLoading] = React.useState(false)
@@ -65,12 +64,12 @@ function CategorieResult(props) {
     }
 
 
-    let displayproducts = Array(6).fill().map(item => {
+    let displayproducts = Array(6).fill().map((item,id) => {
         return (
-            <div>
+            <div key={id}>
                 <Skeleton width="100%" height={200} animation="wave"  />
-                <Skeleton width="50%" height={20} animation="wave" marginBottom="10px" />
-                <Skeleton width="70%" height={20} animation="wave" marginBottom="10px" />
+                <Skeleton width="50%" height={20} animation="wave" style={{marginBottom: "10px"}} />
+                <Skeleton width="70%" height={20} animation="wave" style={{marginBottom: "10px"}} />
                 <Skeleton width="60%" height={20} animation="wave" />
 
             </div>

@@ -44,26 +44,26 @@ function Homepage(props) {
     },[])
 
     // Get random categories product from database
-    React.useEffect(() => {
+    // React.useEffect(() => {
        
-        // if(props.homepage.categoriesList.data !== null) {
-        //     db.collection('categories')
-        //         .doc(props.homepage.categoriesList.data[0].id)
-        //         .collection('products')
-        //         .limit(6)
-        //         .get()
-        //         .then(doc => {
-        //             let data = doc.docs.map(item => {
-        //                 return {...item.data(),id: item.id}
-        //             })
+    //     if(props.homepage.categoriesList.data !== null) {
+    //         db.collection('categories')
+    //             .doc(props.homepage.categoriesList.data[0].id)
+    //             .collection('products')
+    //             .limit(6)
+    //             .get()
+    //             .then(doc => {
+    //                 let data = doc.docs.map(item => {
+    //                     return {...item.data(),id: item.id}
+    //                 })
                     
                     
-        //         })
-        //         .catch(err => console.log(err))
-        // }
+    //             })
+    //             .catch(err => console.log(err))
+    //     }
         
         
-    },[])
+    // },[])
 
     // Go to product details page ***From deals***
     const goToProductDetailsFromDeals = (productId) => {
@@ -85,12 +85,12 @@ function Homepage(props) {
     
 
     // Display all products of deals
-    let showAllDeals = Array(6).fill().map(item => {
+    let showAllDeals = Array(6).fill().map((item,id) => {
         return (
-            <div>
+            <div key = {id}>
                 <Skeleton width="100%" height={200} animation="wave"  />
-                <Skeleton width="50%" height={20} animation="wave" marginBottom="10px" />
-                <Skeleton width="70%" height={20} animation="wave" marginBottom="10px" />
+                <Skeleton width="50%" height={20} animation="wave" style={{marginBottom: "10px"}}/>
+                <Skeleton width="70%" height={20} animation="wave" style={{marginBottom: "10px"}} />
                 <Skeleton width="60%" height={20} animation="wave" />
 
             </div>

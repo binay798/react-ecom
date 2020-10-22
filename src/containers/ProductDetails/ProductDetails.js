@@ -16,22 +16,36 @@ const imgUrl3 = 'https://www.lavamobiles.com/Product/z92/images/z92banner.png'
 
 
 function ProductDetails(props) {
+  
+    const [productIsInCart,setProductIsInCart] = React.useState(false)
+    // Check if the product is in cart
+    React.useEffect(() => {
+        props.cart.forEach(item => {
+            if(item.id === props.selectedProduct.id) {
+                setProductIsInCart(true);
+                
+            }
+            // else {
+            //     setProductIsInCart(false)
+            // }
+        })
+    },[])
     // All images
-    const [childrenImages,setChildrenImages] = React.useState([
-        {id:1,url:imgUrl},{id:2,url:imgUrl2},{id:3,url:imgUrl3},
+    const [childrenImages] = React.useState([
+        {id:1,url:imgUrl},
     ])
     // Selected image is shown 
     const [mainImage,setMainImage] = React.useState(childrenImages[0]);
     // Selected specification or reviews option
     const [specification,setSpecification] = React.useState(true);
 
-    const [detail,setDetail] = React.useState({
-        title: null,
-        discount: null,
-        originalPrice: null
-    })
+    // const [detail,setDetail] = React.useState({
+    //     title: null,
+    //     discount: null,
+    //     originalPrice: null
+    // })
   
-    let productId = props.match.params.id;
+    // let productId = props.match.params.id;
     
     React.useEffect(() => {
         window.scrollTo(0,0);
@@ -128,7 +142,9 @@ function ProductDetails(props) {
                     </div>
 
                     <div className={classes.productDetails__buttons}>
-                        <Link to="/cart" onClick={goToCart} className={classes.productDetails__buttons__cart}>Add To Cart</Link>
+                        <Link to="/cart" onClick={productIsInCart ? null : goToCart} className={classes.productDetails__buttons__cart}>
+                            {productIsInCart ? <span>In Cart</span> : <span>Add to cart</span>}
+                        </Link>
                         <Link to="/cart" className={classes.productDetails__buttons__buy}>Buy Now</Link>
                     </div>
 
@@ -204,7 +220,7 @@ function ProductDetails(props) {
 const mapStateToProps = state => {
     return {
         selectedProduct: state.selectedProduct.selectedProduct,
-        
+        cart: state.cart.productsInCart
     }
 }
 

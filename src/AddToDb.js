@@ -1,6 +1,6 @@
     import React from 'react'
     import './AddToDb.scss';
-    import {db,storage,auth} from './firebase';
+    import {db} from './firebase';
     import firebase from 'firebase';
 
     function AddToDb() {
