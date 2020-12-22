@@ -1,0 +1,143 @@
+.footer {
+    background-color: #0C4E6E;
+    padding: 4rem 8rem;
+    padding-top: 8rem;
+    color: #f7f7f7;
+
+
+    @media screen  and (max-width: 750px){
+         padding: 4rem;
+    }
+
+    &__top {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+        grid-gap: 4rem;
+        margin-bottom: 4rem;
+        border-bottom: 1px solid rgb(129, 127, 127);
+        padding-bottom: 3rem;
+        & > div {
+            color: #f7f7f7;
+            text-align: center;
+            img {
+                display: block;
+                width: 10rem;
+                height: 10rem;
+                margin: 0 auto 2rem;
+            }
+
+            p {
+                font-size: 1.3rem;
+            }
+
+            
+        }
+    }
+
+    &__bottom {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+        grid-gap: 4rem;
+
+        & > div {
+            margin-bottom: 4rem;
+        }
+
+
+        &__logo {
+
+            img {
+                display: block;
+                width: 50%;
+                margin: 0 auto;
+            }
+        }
+
+        &__contact {
+
+
+            h2 {
+                color: orange;
+                
+                font-weight: 400;
+                margin-bottom: 2rem;
+            }
+        }
+
+        &__mobile {
+
+            h2 {
+                color: orange;
+                
+                font-weight: 400;
+                margin-bottom: 2rem;
+            }
+
+            img {
+                display: block;
+                width: 40%;
+                margin-bottom: 3rem;
+            }
+        }
+    }
+
+    &__address {
+        display:flex;
+        align-items: center;
+        font-weight: 100;
+        margin-bottom: 2rem;
+        span {
+            font-weight: 500;
+        }
+
+        img {
+            display:inline-block;
+            width: 2rem;
+            margin-right: 1rem;
+        }
+    }
+
+    &__phone {
+        display:flex;
+        align-items: center;
+        font-weight: 100;
+        margin-bottom: 2rem;
+
+        span {
+            font-weight: 500;
+        }
+
+        img {
+            display:inline-block;
+            width: 2rem;
+            margin-right: 1rem;
+        }
+    }
+
+    &__email {
+        display:flex;
+        align-items: center;
+        font-weight: 100;
+        margin-bottom: 2rem;
+
+        span {
+            font-weight: 500;
+        }
+
+        img {
+            display:inline-block;
+            width: 2rem;
+            margin-right: 1rem;
+        }
+    }
+
+    &__social {
+
+    }
+
+    &__copyright {
+        text-align: center;
+        padding-top: 2rem;
+        border-top:  1px solid rgb(129, 127, 127);
+    }
+}

@@ -1,0 +1,114 @@
+.homepage {
+
+    &__main {
+        display: grid;
+        grid-template-columns: 1fr 2.5fr;
+        grid-gap: 5rem;
+        // align-items: center;
+        margin-bottom: 5rem;
+
+        @media screen and (max-width: 800px) {
+            display: block;
+        }
+
+        & > img {
+            display: block;
+            width: 100%;
+            min-height: 40rem;
+            object-fit: cover;
+            object-position: center;
+
+
+            @media screen and (max-width: 800px) {
+                display: none;
+            }
+        }
+
+        
+    }
+
+    &__deals {
+        background-color: #fff;
+        padding: 2rem;
+        margin-bottom: 4rem;
+
+        &__head {
+            display: flex;
+            border-bottom:1px solid var(--color-gray);
+            padding-bottom: 1rem;
+            margin-bottom: 2.5rem ;
+            gap: 2rem;
+            justify-content: space-between;
+
+            @media only screen and (max-width: 600px) {
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            & > p {
+                background-image:linear-gradient(to right,rgb(245, 150, 116),rgb(248, 108, 58));
+                border-radius: 2.5rem;
+                padding: .5rem 2rem;
+            
+                align-self: center;
+                font-weight: 600;
+                color: #fff;
+            }
+        }
+
+        &__heading {
+            font-weight: 500;
+            font-size: 3rem;
+
+            @media only screen and (max-width: 600px){
+                text-align: center;
+            }
+        }
+
+        &__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+            grid-gap: 2rem;
+        }
+    }
+
+    &__newArrivals {
+        background-color: #fff;
+        padding: 2rem;
+        margin-bottom: 4rem;
+
+        &__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+            grid-gap: 2rem;
+        }
+        &__heading {
+            font-weight: 500;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            border-bottom:1px solid var(--color-gray);
+
+        }
+    }
+
+    &__videoGames {
+        background-color: #fff;
+        padding: 2rem;
+        margin-bottom: 4rem;
+
+        &__heading {
+            font-weight: 500;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            border-bottom:1px solid var(--color-gray);
+
+        }
+
+        &__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+            grid-gap: 2rem;
+        }
+    }
+
+}

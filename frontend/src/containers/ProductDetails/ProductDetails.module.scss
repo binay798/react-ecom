@@ -1,0 +1,223 @@
+.productDetails {
+
+    &__star {
+        display: inline-block;
+        width: 1.5rem;
+    }
+
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        grid-gap: 4rem;
+        background-color: #fff;
+        box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
+        padding: 2rem;
+
+        
+
+    }
+
+    &__images {
+        // background-color: coral;
+        // display: grid;
+        // grid-template-columns: 1fr 3fr;
+        // grid-gap: 2rem;
+        align-self: flex-start;
+
+        @media screen and (max-width: 750px) {
+            grid-column: 1 / -1;
+        }
+
+        &__active {
+            border: 2px solid orange !important;
+            
+        }
+
+        &__children {
+            // background-color: aqua;
+            align-self: flex-start;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 9rem;
+                margin-bottom: 1rem;
+                border: 2px solid lightgray;
+                object-fit: contain;
+                object-position: center;
+                cursor: pointer;
+
+                &:hover {
+                    border: 2px solid #0C4E6E;
+
+                }
+            }
+        }
+
+        &__main {
+            background-color: #fff;
+            height: 30rem;
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+
+            & > div {
+                width: 100% !important;
+                height: 100% !important;
+            }
+
+            img {
+                display: block !important;
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: contain;
+                object-position: center;
+            }
+
+            
+        }
+    }
+    &__desc {
+        // background-color: coral;
+        // height: 40rem;
+
+        @media screen and (max-width: 750px) {
+            grid-column: 1 / -1;
+            padding: 2rem;
+        }
+
+        & > p {
+            font-size: 1.3rem;
+            color: gray;
+        }
+
+        & > h2,h3 {
+            font-weight: 400;
+            margin-top: 2rem;
+        }
+
+        & > ul > li,a {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__colorType {
+
+        span {
+            display: inline-block;
+            border: 1px solid lightgray;
+            padding: .3rem 1rem;
+            margin-right: 1rem;
+            font-size: 1.3rem;
+            cursor: pointer;
+
+            &:hover {
+                border: 1px solid #0C4E6E;
+                color: #0C4E6E;
+
+            }
+        }
+    }
+
+    &__price {
+        color: orange;
+        font-size: 3rem;
+        font-weight: 400;
+        margin: 2rem 0;
+    }
+
+    &__buttons {
+        
+        a:link,a:visited {
+            text-decoration: none;
+            color: #fff;
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.6rem;
+
+            
+        }
+
+        &__cart {
+            background-color: #0C4E6E;
+            margin-right: 4rem;
+            display: inline-block;
+            color: white;
+            padding:1rem 2.5rem;
+            cursor: pointer;
+            &:hover {
+                background-color: darken(#0C4E6E,10);
+            }
+        }
+
+        &__buy {
+            background-color: orange;
+            &:hover {
+                background-color: darken(orange,5);
+            }
+        }
+    }
+
+
+    // Specification section
+    &__spec {
+        margin: 4rem 0;
+        background-color: #fff;
+        box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
+        padding: 2rem;
+    }
+
+    &__videoGames {
+        background-color: #fff;
+        padding: 2rem;
+        margin-bottom: 4rem;
+        box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
+
+
+        &__heading {
+            font-weight: 500;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            border-bottom:1px solid var(--color-gray);
+
+        }
+
+        &__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+            grid-gap: 2rem;
+        }
+    }
+
+
+}
+
+.enlarged {
+    background-color: red;
+}
+
+.toggler {
+    display: flex;
+    align-items: center;
+    border-bottom:  1px solid lightgray;
+    & > p {
+        padding: 1rem 2rem;
+        border-bottom: 2px solid transparent;
+        cursor: pointer;
+        font-weight: 600;
+        &:hover {
+            color: orange;
+        }
+    }
+
+    &__active {
+        border-bottom: 2px solid orange !important;
+        
+    }
+
+    &__content {
+        margin: 3rem 0rem;
+    }
+}
+

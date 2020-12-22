@@ -1,0 +1,100 @@
+.cart {
+
+    &__container {
+
+        &__products {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+
+            & > div {
+                
+                border-bottom: 1px solid lightgray;
+                border-right: 1px solid lightgray;
+                padding: .5rem 1rem;
+                min-height: 15rem;
+            }
+
+            & > div:first-child {
+                border-left: 1px solid lightgray;
+            }
+        }
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-gap: 2rem;
+        & > img {
+            display: block;
+            width: 10rem;
+        }
+
+        &__details {
+
+            h2 {
+                font-weight: 400;
+                font-size: 1.8rem;
+            }
+
+            & > button {
+                background-color: #e8e1de;
+                border: none;
+                padding: .5rem 1rem;
+                border-radius: 4px;
+                display: block;
+                margin-left: auto;
+                outline: none;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: darken(#e8e1de,10);
+                }
+
+                & > img {
+                    display: block;
+                    width: 2rem;
+                    height: 2rem;
+                }
+            }
+        }
+    }
+
+    &__unitPrice {
+
+    }
+
+    &__subTotal {
+        font-size: 1.4rem;
+    }
+
+    &__quantity {
+        display: flex;
+        justify-content: center;
+        padding-top: 3rem !important;
+        span:first-child,span:last-child {
+            display: block;
+            background-color: #D3C6C0;
+            align-self: flex-start;
+            
+            padding: .3rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: darken(#D3C6C0,5);
+            }
+
+            img {
+                display: block;
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+
+        span:nth-of-type(2) {
+            margin: 0 2rem;
+        }
+
+        
+    }
+}

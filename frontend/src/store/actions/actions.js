@@ -1,0 +1,12 @@
+
+export const INITIALIZE = 'INITIALIZE';
+
+export const STORE_SELECTED_PRODUCT = 'STORE_SELECTED_PRODUCT';
+
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const INCREASE_CART_ITEM = 'INCREASE_CART_ITEM';
+export const DECREASE_CART_ITEM = 'DECREASE_CART_ITEM';
+export const DELETE_CART_ITEM = 'DELETE_CART_ITEM';
+
+export const GET_USER = 'GET_USER';
+export const LOGOUT = 'LOGOUT';
