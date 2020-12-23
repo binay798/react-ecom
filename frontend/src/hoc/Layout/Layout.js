@@ -6,6 +6,7 @@ import { top } from '../../assets/images';
 import * as actionCreator from './../../store/actions/auth';
 import { connect } from 'react-redux'
 import SideDrawer from '../../components/UI/SideDrawer/SideDrawer';
+import Notification from '../../components/Notification/Notification';
 
 const moveToTop = () => {
     
@@ -17,9 +18,9 @@ const moveToTop = () => {
 
 function Layout(props) {
     const [showSideDrawer,setShowSideDrawer] = React.useState(false)
-    
     return (
         <div className={classes.layout}>
+            <Notification show={props.notification.status} />
             <Navbar showSideDrawer={showSideDrawer} toggle={() => setShowSideDrawer(!showSideDrawer)} />
             <SideDrawer show={showSideDrawer} hide={() => setShowSideDrawer(false)} />
             {props.children}
@@ -31,10 +32,15 @@ function Layout(props) {
     )
 }
 
+const mapStateToProps = state => {
+    return {
+        notification: state.notification
+    }
+}
 const mapDispatchToProps = dispatch => {
     return {
         setUser: (user) => dispatch(actionCreator.getUser(user))
     }
 }
 
-export default connect(null,mapDispatchToProps)(Layout);
+export default connect(mapStateToProps,mapDispatchToProps)(Layout);

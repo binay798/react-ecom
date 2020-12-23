@@ -10,3 +10,6 @@ export const DELETE_CART_ITEM = 'DELETE_CART_ITEM';
 
 export const GET_USER = 'GET_USER';
 export const LOGOUT = 'LOGOUT';
+
+export const SHOW_NOTIFICATION = 'SHOW_NOTIFICATION';
+export const HIDE_NOTIFICATION = 'HIDE_NOTIFICATION';

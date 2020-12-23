@@ -1,0 +1,31 @@
+.notification {
+    position: fixed;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 4px;
+    padding: 1rem 2rem;
+    min-width: 30rem;
+    z-index: 2500;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.12);
+    font-style: italic;
+    overflow: hidden;
+    justify-content: space-between;
+    gap: 2rem;
+    &::before {
+        content:'';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 7px;
+        background-color: #d26c46;
+    }
+
+    & > span:nth-child(2) {
+        color: coral;
+        cursor: pointer;
+    }
+}

@@ -5,7 +5,8 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
 import axios from './../../axios/axiosInstance';
 import { loadStripe } from '@stripe/stripe-js';
-import { db } from '../../firebase'
+import { db } from '../../firebase';
+import * as actionCreator from './../../store/actions/index'
 const stripePromise = loadStripe('pk_test_51Hy9RGDQWXVoYkcXwDUP7svuqZQqizBXlGwuPrmUqXgkSFODwq1JjjNOKXkYnHwnP06EzkzCSYqF2tMeTlFO5AcN00oNKgYYJF')
 
 
@@ -14,7 +15,8 @@ function Cart(props) {
     const [productsInCart,setProductsInCart] = React.useState([]);
     const [loading,setLoading] = React.useState(false)
     const goToLogin = () => {
-        console.log('login')
+        console.log('login');
+        props.showNotification('You need to login to proceed to checkout')
         props.history.push('/accounts/login')
     }
     let getGrandTotal = props.productsInCart.productsInCart
@@ -116,4 +118,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(withRouter(Cart));
+const mapDispatchToProps = dispatch => {
+    return {
+        showNotification: (content) => dispatch(actionCreator.showNotification(content))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Cart));

@@ -36,6 +36,7 @@ function CartItem(props) {
     }
 
     const deleteItem = () => {
+        props.showNotification('Product removed')
         props.delete(currentItem.id)
     }
 
@@ -77,7 +78,8 @@ const mapDispatchToProps = dispatch => {
     return {
         increase: (id) => dispatch(actionCreators.increaseCartItem(id)),
         decrease: (id) => dispatch(actionCreators.decreaseCartItem(id)),
-        delete: (id) => dispatch(actionCreators.deleteCartItem(id))
+        delete: (id) => dispatch(actionCreators.deleteCartItem(id)),
+        showNotification: (content) => dispatch(actionCreators.showNotification(content))
     }
 }
 

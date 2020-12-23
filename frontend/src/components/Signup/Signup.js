@@ -3,7 +3,7 @@ import classes from './Signup.module.scss';
 import {logo } from './../../assets/images';
 import { auth, db } from './../../firebase';
 import { connect } from 'react-redux';
-import * as actionCreator from './../../store/actions/auth';
+import * as actionCreator from './../../store/actions/index';
 import { withRouter } from 'react-router-dom'
 
 const clearInput = (setState) => {
@@ -59,16 +59,20 @@ function Signup(props) {
                     props.setUser(user.user)
                     
                     clearInput(setState)
+                    props.showNotification("User created successfully")
+                    setLoading(false)
                     props.history.push('/')
                 
                 } catch(err) {
                     console.log(err)
-                    clearInput(setState)
+                    props.showNotification(err.message)
 
+                    clearInput(setState)
+                    setLoading(false)
                 }
             }
         }
-        setLoading(false)
+        
     }
     return (
         <div className={classes.signup}>
@@ -99,7 +103,8 @@ function Signup(props) {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setUser: (user) => dispatch(actionCreator.getUser(user)) 
+        setUser: (user) => dispatch(actionCreator.getUser(user)),
+        showNotification: (content) => dispatch(actionCreator.showNotification(content))
     }
 }
 

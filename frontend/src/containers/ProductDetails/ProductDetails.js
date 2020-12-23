@@ -80,6 +80,7 @@ function ProductDetails(props) {
         let imgUrl = props.selectedProduct.imgUrl
         let id = props.selectedProduct.id
         let data = {productTitle,price,count,totalPrice,imgUrl,id}
+        props.showNotification('Product added to cart')
         props.addToCart(data);
     }
     
@@ -130,7 +131,7 @@ function ProductDetails(props) {
                     <div className={classes.productDetails__buttons}>
                     
                         <div onClick={isProductInCart.includes(true) ? null : goToCart} className={classes.productDetails__buttons__cart}>
-                            {isProductInCart.includes(true) ? <span onClick={() => props.history.push('/cart')}>Go To Cart</span> : <span>Add to cart</span>}
+                            {isProductInCart.includes(true) ? <span style={{display: 'block'}} onClick={() => props.history.push('/cart')}>Go To Cart</span> : <span>Add to cart</span>}
                         </div>
                         <Link to="/cart" className={classes.productDetails__buttons__buy}>Buy Now</Link>
                     </div>
@@ -213,7 +214,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addToCart: (data) => dispatch(actionCreators.addProductToCart(data))
+        addToCart: (data) => dispatch(actionCreators.addProductToCart(data)),
+        showNotification: (content) => dispatch(actionCreators.showNotification(content))
     }
 }
 

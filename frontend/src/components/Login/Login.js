@@ -4,7 +4,7 @@ import {logo } from './../../assets/images'
 import { Link, withRouter } from 'react-router-dom';
 import { auth } from './../../firebase';
 import { connect } from 'react-redux';
-import * as actionCreator from './../../store/actions/auth'
+import * as actionCreator from './../../store/actions/index'
 
 
 const clearInput = (setEmail,setPassword) => {
@@ -29,13 +29,18 @@ function Login(props) {
                 clearInput(setEmail,setPassword)
 
                 props.setUser(user.user)
+                setLoading(false)
+                props.showNotification('Logged in successfully')
                 props.history.push('/');
             } catch(err) {
                 console.log(err)
+                props.showNotification(err.message)
+
                 clearInput(setEmail,setPassword)
+                setLoading(false)
             }
         }
-        setLoading(false)
+        
     }
     return (
         <div className={classes.login}>
@@ -63,7 +68,8 @@ function Login(props) {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setUser: (user) => dispatch(actionCreator.getUser(user))
+        setUser: (user) => dispatch(actionCreator.getUser(user)),
+        showNotification: (content) => dispatch(actionCreator.showNotification(content))
     }
 }
 
