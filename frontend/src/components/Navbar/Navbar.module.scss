@@ -1,6 +1,5 @@
 .navbar {
     background-color: var(--color-blue);
-    
     position: sticky;
     top: 0;
     z-index: 10;
@@ -8,10 +7,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 6rem;
+    min-height: 6rem;
 
     @media only screen and (max-width: 800px) {
-        padding: 0 5rem;
+        padding: 1rem 5rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+        
+    }
+
+    @media only screen and (max-width: 600px) {
+        padding: 1rem;
+        
+        
     }
     &__logo {
         flex: .4;
@@ -35,9 +43,14 @@
     }
 
     &__search {
-        flex: 1;
+        flex: 1 0 1;
         margin: 0 1.5rem;
         display: flex;
+
+        @media only screen and (max-width: 700px) {
+            order: 1;
+            width: 100%;
+        }
         & > input {
             display: block;
             outline: none;

@@ -17,7 +17,7 @@ function Categories(props) {
             return <Category id={item.id} icon={item.icon} content={item.title} key={item.id} />
         })
     }
-    
+    console.log(props)
     return (
         <div className={classes.categories}>
             <ul className={classes.categories__list}> 

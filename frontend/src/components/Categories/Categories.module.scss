@@ -16,8 +16,14 @@
             display: grid;
             grid-template-columns: repeat(2,1fr);
 
-            
+            & > span {
+                display: block;
+                grid-column: 1 / -1;
+                
+            }
         }
+
+        
     }
 
     

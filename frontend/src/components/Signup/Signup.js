@@ -3,7 +3,8 @@ import classes from './Signup.module.scss';
 import {logo } from './../../assets/images';
 import { auth, db } from './../../firebase';
 import { connect } from 'react-redux';
-import * as actionCreator from './../../store/actions/auth'
+import * as actionCreator from './../../store/actions/auth';
+import { withRouter } from 'react-router-dom'
 
 const clearInput = (setState) => {
     return setState({
@@ -56,7 +57,9 @@ function Signup(props) {
                     user = JSON.parse(user)
                     console.log(user)
                     props.setUser(user.user)
+                    
                     clearInput(setState)
+                    props.history.push('/')
                 
                 } catch(err) {
                     console.log(err)
@@ -100,4 +103,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null,mapDispatchToProps)(Signup)
+export default connect(null,mapDispatchToProps)(withRouter(Signup))

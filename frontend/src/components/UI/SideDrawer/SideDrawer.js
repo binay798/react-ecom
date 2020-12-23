@@ -49,7 +49,7 @@ function SideDrawer(props) {
                     </span>
                 </Link>)}
 
-                {!props.auth.auth && <Link onClick={logoutUser} to="/accounts/login"  className={classes.side__nav__link} >Login</Link>}
+                {!props.auth.auth && <Link onClick={hideSideDrawer} to="/accounts/login"  className={classes.side__nav__link} >Login</Link>}
                 {props.auth.auth && (<span onClick={logoutUser} style={{cursor: 'pointer'}} className={classes.side__nav__link} >Logout</span>)}
                 
                 {/* if not authenticated then don't show */}

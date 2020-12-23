@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './Login.module.scss';
 import {logo } from './../../assets/images'
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { auth } from './../../firebase';
 import { connect } from 'react-redux';
 import * as actionCreator from './../../store/actions/auth'
@@ -29,6 +29,7 @@ function Login(props) {
                 clearInput(setEmail,setPassword)
 
                 props.setUser(user.user)
+                props.history.push('/');
             } catch(err) {
                 console.log(err)
                 clearInput(setEmail,setPassword)
@@ -66,4 +67,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null,mapDispatchToProps)(Login);
+export default connect(null,mapDispatchToProps)(withRouter(Login));

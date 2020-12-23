@@ -128,6 +128,11 @@
     }
 
     &__buttons {
+        display: flex;
+        gap: 2rem;
+        @media screen and (max-width: 750px) {
+            flex-direction: column;
+        }
         
         a:link,a:visited {
             text-decoration: none;
@@ -141,7 +146,7 @@
 
         &__cart {
             background-color: #0C4E6E;
-            margin-right: 4rem;
+            // margin-right: 4rem;
             display: inline-block;
             color: white;
             padding:1rem 2.5rem;
